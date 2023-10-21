@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
+// Create a ProductForm component
 function ProductForm() {
+  // Create a formData state to store the form data
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -9,6 +11,7 @@ function ProductForm() {
     price: ''
   });
 
+  // Create a handleChange function to update the formData state
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevData => ({
@@ -17,14 +20,30 @@ function ProductForm() {
     }));
   };
 
+  // Create a handleSubmit function to handle the form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
     // could use the formData to send to a API or handle it
 
+    //Post request example using axios
+    // try {
+    //     // Simulating a POST request to your server-side endpoint that saves data to MongoDB
+    //     const response = await axios.post('https://exampleapi/products', formData);
+
+    //     if (response.status === 200) {
+    //         setIsModalVisible(true);  // Displaying the success modal
+    //     } else {
+    //         console.error('Failed to save the product.');
+    //     }
+    // } catch (error) {
+    //     console.error('There was an error uploading the data:', error);
+    // }
     window.alert('Form submitted successfully!');
 };
 
+
+// Form
   return (
     <div>
       <h2>New Product</h2>
